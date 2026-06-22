@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b65h5vt3rxed5"]
+
+[sub_resource type="GDScript" id="GDScript_ooo8m"]
+script/source = "#extends Area2D
+#
+#signal area_changed(areaShape: CollisionShape2D)
+#func _ready() -> void:
+	#add_to_group(\"camera_area\")
+#
+#func _on_body_entered(body: Node2D) -> void:
+	#if body.is_in_group(\"player\"):
+		#area_changed.emit($collisionShape2D)
+"
+
+[node name="area" type="Area2D"]
+script = SubResource("GDScript_ooo8m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rp45o621knld"
+path="res://.godot/imported/buttonClick.mp3-e88d481e10765ab69ed6eb1b0e8edc04.mp3str"
+
+[deps]
+
+source_file="res://SunnyLand Music/Sound Effects/buttonClick.mp3"
+dest_files=["res://.godot/imported/buttonClick.mp3-e88d481e10765ab69ed6eb1b0e8edc04.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

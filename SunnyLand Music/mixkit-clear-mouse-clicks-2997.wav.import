@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://o10pmpvamy32"
+path="res://.godot/imported/mixkit-clear-mouse-clicks-2997.wav-7eb56880643deec69dc8a8f37dc8476b.sample"
+
+[deps]
+
+source_file="res://SunnyLand Music/mixkit-clear-mouse-clicks-2997.wav"
+dest_files=["res://.godot/imported/mixkit-clear-mouse-clicks-2997.wav-7eb56880643deec69dc8a8f37dc8476b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
