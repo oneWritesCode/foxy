@@ -7,8 +7,11 @@ extends Control
 @onready var pause_button = $ButtonRow/PauseButton
 @onready var pause_label = $PauseLabel
 
+var damage_tween: Tween
+
 func _ready() -> void:
 	add_to_group("hud")
+	damage_overlay.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS   # keeps this whole HUD responsive even while paused
 
 	restart_button.pressed.connect(_on_restart_button_pressed)
@@ -27,9 +30,13 @@ func update_health(current: int, max_health: int) -> void:
 	health_bar.value = current
 
 func flash_damage() -> void:
-	damage_overlay.color.a = 0.4
-	var tween = create_tween()
-	tween.tween_property(damage_overlay, "color:a", 0.0, 0.3)
+	if damage_tween:
+		damage_tween.kill()
+	damage_overlay.visible = true
+	damage_overlay.modulate.a = 0.8
+	damage_tween = create_tween()
+	damage_tween.tween_interval(0.2)
+	damage_tween.tween_property(damage_overlay, "modulate:a", 0.0, 1.0)
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()

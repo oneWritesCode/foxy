@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 80.0
 const JUMP_VELOCITY = -300.0
 # variable realted to health
 const MAX_HEALTH = 100
@@ -11,7 +11,7 @@ const INVINCIBILITY_DURATION = 1.0
 # when being hit
 var knockback_timer = 0.0
 var knockback_velocity = Vector2.ZERO
-const KNOCKBACK_FRICTION = 0.6
+const KNOCKBACK_FRICTION = 0.4
 
 @onready var anim = get_node("AnimatedSprite2D")
 @onready var ladder_ray_cast = get_node("LadderRayCast")
@@ -102,7 +102,7 @@ func take_damage(amount: int, knockback_direction: float = -1.0) -> void:
 	health = max(health, 0)
 	is_invincible = true
 	invincibility_timer = INVINCIBILITY_DURATION
-	knockback_velocity = Vector2(knockback_direction * SPEED * 3.5, JUMP_VELOCITY * 0.17)
+	knockback_velocity = Vector2(knockback_direction * SPEED * 3.2, JUMP_VELOCITY * 0.17)
 	#velocity.y = JUMP_VELOCITY
 	
 	print("Health: ", health)
