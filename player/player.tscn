@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://clsl2xqa274d5"]
+[gd_scene load_steps=21 format=3 uid="uid://clsl2xqa274d5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_hlqmt"]
 [ext_resource type="Texture2D" uid="uid://d1luetl8cj7gm" path="res://foxy-fox-assets/Assets/Characters/Foxy/Spritesheet.png" id="2_4mkid"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d2mkprg4wduq7" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-5.png" id="13_n1mwb"]
 [ext_resource type="Texture2D" uid="uid://dbpnm3ujgulww" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-6.png" id="14_stqxj"]
 [ext_resource type="Script" path="res://player/camera_2d.gd" id="15_gg2l3"]
+[ext_resource type="AudioStream" uid="uid://cy5mcvvtwl41x" path="res://SunnyLand Music/Sound Effects/fox sound/get hurt.mp3" id="16_nnfm4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3td3x"]
 radius = 7.0
@@ -121,3 +122,6 @@ position = Vector2(2, -6)
 target_position = Vector2(0, -9)
 collision_mask = 2
 hit_from_inside = true
+
+[node name="getHurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_nnfm4")

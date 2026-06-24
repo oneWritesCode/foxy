@@ -14,6 +14,7 @@ var knockback_velocity = Vector2.ZERO
 const KNOCKBACK_FRICTION = 0.4
 
 @onready var anim = get_node("AnimatedSprite2D")
+@onready var get_hurt_sound = $AudioStreamPlayer
 @onready var ladder_ray_cast = get_node("LadderRayCast")
 
 func _ready() -> void:
@@ -103,10 +104,10 @@ func take_damage(amount: int, knockback_direction: float = -1.0) -> void:
 	is_invincible = true
 	invincibility_timer = INVINCIBILITY_DURATION
 	knockback_velocity = Vector2(knockback_direction * SPEED * 3.2, JUMP_VELOCITY * 0.17)
-	#velocity.y = JUMP_VELOCITY
 	
 	print("Health: ", health)
 	health = max(health, 0)
+	get_hurt_sound.play()
 	get_tree().call_group("hud", "flash_damage")
 	get_tree().call_group("hud", "update_health", health, MAX_HEALTH)
 	if health <= 0:

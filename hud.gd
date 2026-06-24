@@ -8,7 +8,8 @@ extends Control
 @onready var pause_label = $PauseLabel
 
 var damage_tween: Tween
-
+var health_tween: Tween
+	
 func _ready() -> void:
 	add_to_group("hud")
 	damage_overlay.visible = false
@@ -27,7 +28,11 @@ func _ready() -> void:
 
 func update_health(current: int, max_health: int) -> void:
 	health_bar.max_value = max_health
-	health_bar.value = current
+	#health_label.text = "HP: %d / %d" % [current, max_health]
+	if health_tween:
+		health_tween.kill()
+	health_tween = create_tween()
+	health_tween.tween_property(health_bar, "value", current, 0.5)
 
 func flash_damage() -> void:
 	if damage_tween:
