@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 @onready var btnClickSound = $"../buttonClick"
 var is_busy = false
 

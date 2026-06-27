@@ -14,7 +14,7 @@ var knockback_velocity = Vector2.ZERO
 const KNOCKBACK_FRICTION = 0.4
 
 @onready var anim = get_node("AnimatedSprite2D")
-@onready var get_hurt_sound = $AudioStreamPlayer
+@onready var get_hurt_sound = $getHurtSound
 @onready var ladder_ray_cast = get_node("LadderRayCast")
 
 func _ready() -> void:

@@ -112,9 +112,9 @@ animation = &"idle"
 frame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4, 0)
+position = Vector2(2, 1)
 offset = Vector2(0, -60)
-zoom = Vector2(1.6, 2)
+zoom = Vector2(2.4, 3)
 script = ExtResource("15_gg2l3")
 
 [node name="LadderRayCast" type="RayCast2D" parent="."]

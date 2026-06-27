@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8iunkxjny6mk"]
+[gd_scene load_steps=10 format=3 uid="uid://b8iunkxjny6mk"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_10vga"]
 [ext_resource type="Texture2D" uid="uid://2ktwdrsloiuv" path="res://foxy-fox-assets/Assets/Preview.png" id="1_ex3l0"]
+[ext_resource type="Texture2D" uid="uid://bpko787lxauu4" path="res://foxy-fox-assets/Assets/scrap/play btn.png" id="2_pme2i"]
 [ext_resource type="AudioStream" uid="uid://ip5cjqpmiahl" path="res://SunnyLand Music/Adventure pack 1 ogg/happywalking.ogg" id="3_lbpf0"]
+[ext_resource type="Texture2D" uid="uid://b3eegrdgikc23" path="res://foxy-fox-assets/Assets/scrap/quit btn.png" id="3_sq6bx"]
+[ext_resource type="Texture2D" uid="uid://lp351oc0g4fo" path="res://foxy-fox-assets/Assets/scrap/hovered play.png" id="3_tq3vl"]
+[ext_resource type="Texture2D" uid="uid://bmu6iprpimulb" path="res://foxy-fox-assets/Assets/scrap/hovered quit.png" id="4_4bjqp"]
 [ext_resource type="AudioStream" uid="uid://rp45o621knld" path="res://SunnyLand Music/Sound Effects/buttonClick.mp3" id="4_eog2k"]
 [ext_resource type="Script" path="res://main_camera_2d.gd" id="5_ar7ft"]
-
-[sub_resource type="FontVariation" id="FontVariation_es54n"]
-
-[sub_resource type="FontVariation" id="FontVariation_wfkxy"]
 
 [node name="main" type="Node2D"]
 
@@ -20,23 +20,23 @@ offset_bottom = 833.0
 texture = ExtResource("1_ex3l0")
 expand_mode = 1
 
-[node name="play" type="Button" parent="."]
-offset_left = 80.0
-offset_top = 502.0
-offset_right = 312.0
-offset_bottom = 569.0
-theme_override_fonts/font = SubResource("FontVariation_es54n")
-theme_override_font_sizes/font_size = 43
-text = "PLAY"
+[node name="play" type="TextureButton" parent="."]
+offset_left = 88.0
+offset_top = 400.0
+offset_right = 543.0
+offset_bottom = 717.0
+scale = Vector2(0.5, 0.4)
+texture_normal = ExtResource("2_pme2i")
+texture_hover = ExtResource("3_tq3vl")
 
-[node name="quit" type="Button" parent="."]
-offset_left = 79.0
-offset_top = 584.0
-offset_right = 178.0
-offset_bottom = 632.0
-theme_override_fonts/font = SubResource("FontVariation_wfkxy")
-theme_override_font_sizes/font_size = 27
-text = "QUIT"
+[node name="quit" type="TextureButton" parent="."]
+offset_left = 91.0
+offset_top = 550.0
+offset_right = 546.0
+offset_bottom = 867.0
+scale = Vector2(0.3, 0.2)
+texture_normal = ExtResource("3_sq6bx")
+texture_hover = ExtResource("4_4bjqp")
 script = ExtResource("1_10vga")
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]

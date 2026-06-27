@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhj2g4ukpdcde"
-path="res://.godot/imported/fire tileset.png-82f7a3dd73ef6ec4373545d97057e9cb.ctex"
+uid="uid://b3eegrdgikc23"
+path="res://.godot/imported/quit btn.png-482d90a6db350618691f2c526de2cf75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foxy-fox-assets/Assets/environment/fire tileset.png"
-dest_files=["res://.godot/imported/fire tileset.png-82f7a3dd73ef6ec4373545d97057e9cb.ctex"]
+source_file="res://foxy-fox-assets/Assets/scrap/quit btn.png"
+dest_files=["res://.godot/imported/quit btn.png-482d90a6db350618691f2c526de2cf75.ctex"]
 
 [params]
 

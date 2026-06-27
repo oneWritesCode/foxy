@@ -2,10 +2,11 @@ extends Control
 
 @onready var health_bar = $HealthBar
 @onready var damage_overlay = $DamageOverlay
-@onready var restart_button = $ButtonRow/RestartButton
-@onready var quit_button = $ButtonRow/QuitButton
-@onready var pause_button = $ButtonRow/PauseButton
-@onready var pause_label = $PauseLabel
+@onready var restart_button = $PauseTexture/RestartButton
+@onready var quit_button = $PauseTexture/QuitButton
+@onready var settings_button = $settingsButton
+@onready var paused_settings_page = $PauseTexture
+@onready var btnClickSound = $"../buttonClick"
 
 var damage_tween: Tween
 var health_tween: Tween
@@ -17,9 +18,9 @@ func _ready() -> void:
 
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
-	pause_button.pressed.connect(_on_pause_button_pressed)
+	settings_button.pressed.connect(_on_pause_button_pressed)
 
-	pause_label.visible = false
+	paused_settings_page.visible = false
 
 	await get_tree().process_frame
 	var player = get_tree().get_first_node_in_group("player")
@@ -44,12 +45,16 @@ func flash_damage() -> void:
 	damage_tween.tween_property(damage_overlay, "modulate:a", 0.0, 1.0)
 
 func _on_restart_button_pressed() -> void:
+	btnClickSound.play()
+	get_tree().paused = false
+	paused_settings_page.visible = false
 	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed() -> void:
+	btnClickSound.play()
 	get_tree().quit()
 
 func _on_pause_button_pressed() -> void:
+	btnClickSound.play()
 	get_tree().paused = !get_tree().paused
-	pause_label.visible = get_tree().paused
-	pause_button.text = "RESUME" if get_tree().paused else "PAUSE"
+	paused_settings_page.visible = get_tree().paused

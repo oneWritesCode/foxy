@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhj2g4ukpdcde"
-path="res://.godot/imported/fire tileset.png-82f7a3dd73ef6ec4373545d97057e9cb.ctex"
+uid="uid://cv6hf3l5b4vdl"
+path="res://.godot/imported/empty healthbar.png-4b651f69521f0f21821ce4feb12efe47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foxy-fox-assets/Assets/environment/fire tileset.png"
-dest_files=["res://.godot/imported/fire tileset.png-82f7a3dd73ef6ec4373545d97057e9cb.ctex"]
+source_file="res://foxy-fox-assets/Assets/scrap/empty healthbar.png"
+dest_files=["res://.godot/imported/empty healthbar.png-4b651f69521f0f21821ce4feb12efe47.ctex"]
 
 [params]
 
