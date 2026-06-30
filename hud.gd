@@ -7,6 +7,9 @@ extends Control
 @onready var settings_button = $settingsButton
 @onready var paused_settings_page = $PauseTexture
 @onready var btnClickSound = $"../buttonClick"
+@onready var coin_label = $coinLabel
+@onready var key_texture = $key
+@onready var key_label = $keyLabel
 
 var damage_tween: Tween
 var health_tween: Tween
@@ -19,14 +22,31 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	settings_button.pressed.connect(_on_pause_button_pressed)
-
 	paused_settings_page.visible = false
 
 	await get_tree().process_frame
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		update_health(player.health, player.MAX_HEALTH)
+	# code for key
+	if key_label.text == "*0":
+		key_texture.visible = false
+		key_label.visible = false
+	else:
+		key_texture.visible = true
+		key_label.visible = true
+	Keys.get_key.connect(on_get_key)
+	on_get_key(Keys.key)
+	#code for conins
+	Currency.coins_changed.connect(_on_coins_changed)
+	_on_coins_changed(Currency.coins) 
 
+func _on_coins_changed(new_total: int) -> void:
+	coin_label.text = "*%d" % new_total
+
+func on_get_key(new_total: int) -> void:
+	key_label.text = "*%d" % new_total
+	
 func update_health(current: int, max_health: int) -> void:
 	health_bar.max_value = max_health
 	#health_label.text = "HP: %d / %d" % [current, max_health]
@@ -48,6 +68,7 @@ func _on_restart_button_pressed() -> void:
 	btnClickSound.play()
 	get_tree().paused = false
 	paused_settings_page.visible = false
+	Keys.key = 0
 	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed() -> void:

@@ -1,11 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://clsl2xqa274d5"]
+[gd_scene load_steps=34 format=3 uid="uid://clsl2xqa274d5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_hlqmt"]
 [ext_resource type="Texture2D" uid="uid://d1luetl8cj7gm" path="res://foxy-fox-assets/Assets/Characters/Foxy/Spritesheet.png" id="2_4mkid"]
+[ext_resource type="Texture2D" uid="uid://56rytn626e1x" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/climb/player-climb-1.png" id="2_d4m64"]
+[ext_resource type="Texture2D" uid="uid://b1xx306cq3vos" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/climb/player-climb-2.png" id="3_f3lr8"]
 [ext_resource type="Texture2D" uid="uid://ljwoiktl5wst" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/idle/player-idle-1.png" id="3_s0dsb"]
 [ext_resource type="Texture2D" uid="uid://c0in7udd4h8sy" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/idle/player-idle-2.png" id="4_av7mx"]
+[ext_resource type="Texture2D" uid="uid://0mxvc5d7qxme" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/climb/player-climb-3.png" id="4_hkbd1"]
 [ext_resource type="Texture2D" uid="uid://cheij1ythkkqe" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/idle/player-idle-3.png" id="5_c4s02"]
+[ext_resource type="Texture2D" uid="uid://cxxaeg7xjdbcu" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/crouch/player-crouch-1.png" id="5_sxh48"]
 [ext_resource type="Texture2D" uid="uid://bls0ha0x2mxqq" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/idle/player-idle-4.png" id="6_4u4fk"]
+[ext_resource type="Texture2D" uid="uid://bdlb017a3inty" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/crouch/player-crouch-2.png" id="6_piieo"]
 [ext_resource type="Texture2D" uid="uid://bpkweypp0mbt6" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/jump/player-jump-1.png" id="7_ubafr"]
 [ext_resource type="Texture2D" uid="uid://cirtut4sm3dmb" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/jump/player-jump-2.png" id="8_j4yp2"]
 [ext_resource type="Texture2D" uid="uid://dv3ac61oeef21" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-1.png" id="9_k8jaf"]
@@ -13,9 +18,17 @@
 [ext_resource type="Texture2D" uid="uid://c1mpungntklna" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-3.png" id="11_bsv8a"]
 [ext_resource type="Texture2D" uid="uid://cryi01n1rudcq" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-4.png" id="12_6t188"]
 [ext_resource type="Texture2D" uid="uid://d2mkprg4wduq7" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-5.png" id="13_n1mwb"]
+[ext_resource type="Texture2D" uid="uid://dlxigo5crv8di" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/LookUp/lookUp.png" id="14_0akri"]
 [ext_resource type="Texture2D" uid="uid://dbpnm3ujgulww" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/run/player-run-6.png" id="14_stqxj"]
+[ext_resource type="Texture2D" uid="uid://c6dcsdltjhy17" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/Roll/Roll1.png" id="15_aphnp"]
 [ext_resource type="Script" path="res://player/camera_2d.gd" id="15_gg2l3"]
+[ext_resource type="Texture2D" uid="uid://dcxb4xhteaku6" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/Roll/Roll3.png" id="16_nfn4l"]
 [ext_resource type="AudioStream" uid="uid://cy5mcvvtwl41x" path="res://SunnyLand Music/Sound Effects/fox sound/get hurt.mp3" id="16_nnfm4"]
+[ext_resource type="Texture2D" uid="uid://o43h7mcty71e" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/Roll/Roll2.png" id="17_8800b"]
+[ext_resource type="Texture2D" uid="uid://d024hgnrh41c1" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/Roll/Roll4.png" id="18_v6gk6"]
+[ext_resource type="Texture2D" uid="uid://tc4gno6v0dh" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/Victory/Victory.png" id="25_5jb1h"]
+[ext_resource type="Texture2D" uid="uid://4thpah84p2n6" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/WallGrab/wall-grab1.png" id="26_i2wfb"]
+[ext_resource type="Texture2D" uid="uid://cpjphhas127dl" path="res://foxy-fox-assets/Assets/Characters/Foxy/Sprites/WallGrab/wall-grab2.png" id="27_vjly8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3td3x"]
 radius = 7.0
@@ -31,6 +44,31 @@ region = Rect2(0, 128, 33, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6brs"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d4m64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f3lr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hkbd1")
+}],
+"loop": true,
+"name": &"climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_sxh48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_piieo")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ueqad")
@@ -77,6 +115,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_0akri")
+}],
+"loop": true,
+"name": &"lookup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_aphnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nfn4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8800b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v6gk6")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_k8jaf")
 }, {
 "duration": 1.0,
@@ -97,6 +160,25 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_5jb1h")
+}],
+"loop": true,
+"name": &"victory",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_i2wfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_vjly8")
+}],
+"loop": true,
+"name": &"wallGrab",
+"speed": 1.0
 }]
 
 [node name="player" type="CharacterBody2D"]
@@ -108,8 +190,8 @@ shape = SubResource("CapsuleShape2D_3td3x")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_t6brs")
-animation = &"idle"
-frame = 2
+animation = &"crouch"
+frame_progress = 0.653872
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 1)

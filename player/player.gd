@@ -52,11 +52,11 @@ func _ladder_climb():
 	if Input.is_action_just_pressed("ui_accept"):
 		velocity.y = JUMP_VELOCITY
 		return 
-	
+	anim.play("climb")
 	var direction := Vector2.ZERO
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	direction.y = Input.get_axis("ui_up", "ui_down")
-	anim.play("idle")
+	#anim.play("idle")
 	if direction:
 		velocity = direction * SPEED / 2
 	else:
@@ -118,6 +118,6 @@ func die() -> void:
 	set_physics_process(false)
 	velocity = Vector2.ZERO
 	anim.play("death")
-	
+	Keys.key = 0
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4ge5fnt43cxi"]
+
+[ext_resource type="Script" path="res://coin.gd" id="1_y8cmr"]
+[ext_resource type="Texture2D" uid="uid://cqbuayqpjgulj" path="res://foxy-fox-assets/Assets/environment/coins/coins spreadsheet-1.png.png" id="2_jb3qi"]
+[ext_resource type="Texture2D" uid="uid://doksbtqtfgra4" path="res://foxy-fox-assets/Assets/environment/coins/coins spreadsheet-2.png.png" id="3_cac2w"]
+[ext_resource type="Texture2D" uid="uid://bil8h40sfpi2m" path="res://foxy-fox-assets/Assets/environment/coins/coins spreadsheet-3.png.png" id="4_ht4ff"]
+[ext_resource type="AudioStream" uid="uid://c42x2d6o284qy" path="res://SunnyLand Music/Sound Effects/coin-casino.mp3" id="5_e4esu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oovsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jb3qi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cac2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ht4ff")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nkn81"]
+radius = 3.0
+height = 14.0
+
+[node name="coin" type="Area2D"]
+position = Vector2(-14, 181)
+script = ExtResource("1_y8cmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.0667372, 0.0791667)
+sprite_frames = SubResource("SpriteFrames_oovsd")
+animation = &"spin"
+frame_progress = 0.111266
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_nkn81")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_e4esu")
+volume_db = 0.6
