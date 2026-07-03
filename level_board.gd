@@ -1,15 +1,16 @@
 extends Node2D
 
 #@onready var label = $Label
-@onready var speech_bubble = $Node2D
-@onready var texture_rect = $Node2D/TextureRect
-@onready var label = $Node2D/TextureRect/Label
-@onready var area = $Area2D
+@onready var speech_bubble = $LevelBoardNode
+@onready var texture_rect = $LevelBoardNode/TextureRect
+@onready var label = $LevelBoardNode/TextureRect/Label
+@onready var area = $levelBoardArea
 var hide_timer = 0.0
 var is_showing = false
 
-var full_text = "the
-door is locked"
+var full_text = "collect the key 
+to go to the 
+second level"
 var current_chars = 0
 var typing_speed = 0.05  # seconds per character
 var typing_timer = 0.0
@@ -36,6 +37,9 @@ func _process(delta):
 			is_showing = false
 
 func _on_body_entered(body):
+	if Keys.key >= 1:
+		return
+	
 	if body.name == "player":
 		label.visible = true
 		texture_rect.visible = true

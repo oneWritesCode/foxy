@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r32x8w64gffb"
-path="res://.godot/imported/final assets big empty.png-b72fb20009947e3a2e15516b43cfe099.ctex"
+uid="uid://b3q7ba22k84qc"
+path="res://.godot/imported/half preview.png-9dd0b69a80e0c7b5e266c02278bb2eca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foxy-fox-assets/Assets/scrap/final assets big empty.png"
-dest_files=["res://.godot/imported/final assets big empty.png-b72fb20009947e3a2e15516b43cfe099.ctex"]
+source_file="res://foxy-fox-assets/Assets/half preview.png"
+dest_files=["res://.godot/imported/half preview.png-9dd0b69a80e0c7b5e266c02278bb2eca.ctex"]
 
 [params]
 

@@ -1,5 +1,5 @@
 extends TextureButton
-@onready var btnClickSound = $"../buttonClick"
+@onready var btnClickSound = $"../../buttonClick"
 var is_busy = false
 
 func _on_pressed() -> void:

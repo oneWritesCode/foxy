@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt0k188v2gwnc"
-path="res://.godot/imported/final assets big full.png-082e6ad93e8432956f22358eb9df74aa.ctex"
+uid="uid://b7hfym4p26frd"
+path="res://.godot/imported/you won font.png-5e6e6fd1eb14f1529f77d5ee8f03513c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://foxy-fox-assets/Assets/scrap/final assets big full.png"
-dest_files=["res://.godot/imported/final assets big full.png-082e6ad93e8432956f22358eb9df74aa.ctex"]
+source_file="res://foxy-fox-assets/Assets/scrap/you won font.png"
+dest_files=["res://.godot/imported/you won font.png-5e6e6fd1eb14f1529f77d5ee8f03513c.ctex"]
 
 [params]
 

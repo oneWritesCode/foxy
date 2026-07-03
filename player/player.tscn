@@ -190,8 +190,7 @@ shape = SubResource("CapsuleShape2D_3td3x")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -6)
 sprite_frames = SubResource("SpriteFrames_t6brs")
-animation = &"crouch"
-frame_progress = 0.653872
+animation = &"victory"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 1)

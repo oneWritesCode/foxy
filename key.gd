@@ -2,7 +2,7 @@ extends Area2D
 
 @export var value: int = 1
 @onready var anim = $AnimatedSprite2D
-#@onready var key_sound = $AudioStreamPlayer
+@onready var key_collecting_sound = $keyCollectingSound
 
 func _ready() -> void:
 	anim.play("shines")
@@ -12,7 +12,7 @@ func _on_body_entered(body: Node) -> void:
 	if body.name == "player":
 		Keys.add_key(value)
 		anim.visible = false
-		#set_deferred("monitoring", false)
-		#coin_sound.play()
-		#await coin_sound.finished
+		set_deferred("monitoring", false)
+		key_collecting_sound.play()
+		await key_collecting_sound.finished
 		queue_free()

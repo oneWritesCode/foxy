@@ -10,9 +10,13 @@ extends Control
 @onready var coin_label = $coinLabel
 @onready var key_texture = $key
 @onready var key_label = $keyLabel
-
+@onready var win_scene = $WinScene
+@onready var win_label = $WinScene/winLabel
 var damage_tween: Tween
 var health_tween: Tween
+var win_label_text = "second level is 
+under construction,
+so,wait till then :)"
 	
 func _ready() -> void:
 	add_to_group("hud")
@@ -23,18 +27,13 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	settings_button.pressed.connect(_on_pause_button_pressed)
 	paused_settings_page.visible = false
+	win_scene.visible = false
 
 	await get_tree().process_frame
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		update_health(player.health, player.MAX_HEALTH)
 	# code for key
-	if key_label.text == "*0":
-		key_texture.visible = false
-		key_label.visible = false
-	else:
-		key_texture.visible = true
-		key_label.visible = true
 	Keys.get_key.connect(on_get_key)
 	on_get_key(Keys.key)
 	#code for conins
@@ -47,6 +46,13 @@ func _on_coins_changed(new_total: int) -> void:
 func on_get_key(new_total: int) -> void:
 	key_label.text = "*%d" % new_total
 	
+func show_win_message() -> void:
+	#bg_music_when_playing.stop()
+	#$WinScene/AudioStreamPlayer.play()
+	win_scene.visible = true
+	win_label.text = win_label_text
+	win_label.visible = true
+
 func update_health(current: int, max_health: int) -> void:
 	health_bar.max_value = max_health
 	#health_label.text = "HP: %d / %d" % [current, max_health]

@@ -1,41 +1,53 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8iunkxjny6mk"]
+[gd_scene load_steps=9 format=3 uid="uid://b8iunkxjny6mk"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_10vga"]
-[ext_resource type="Texture2D" uid="uid://2ktwdrsloiuv" path="res://foxy-fox-assets/Assets/Preview.png" id="1_ex3l0"]
+[ext_resource type="Texture2D" uid="uid://b3q7ba22k84qc" path="res://foxy-fox-assets/Assets/half preview.png" id="1_ks1gv"]
 [ext_resource type="Texture2D" uid="uid://bpko787lxauu4" path="res://foxy-fox-assets/Assets/scrap/play btn.png" id="2_pme2i"]
 [ext_resource type="AudioStream" uid="uid://ip5cjqpmiahl" path="res://SunnyLand Music/Adventure pack 1 ogg/happywalking.ogg" id="3_lbpf0"]
 [ext_resource type="Texture2D" uid="uid://b3eegrdgikc23" path="res://foxy-fox-assets/Assets/scrap/quit btn.png" id="3_sq6bx"]
 [ext_resource type="Texture2D" uid="uid://lp351oc0g4fo" path="res://foxy-fox-assets/Assets/scrap/hovered play.png" id="3_tq3vl"]
 [ext_resource type="Texture2D" uid="uid://bmu6iprpimulb" path="res://foxy-fox-assets/Assets/scrap/hovered quit.png" id="4_4bjqp"]
 [ext_resource type="AudioStream" uid="uid://rp45o621knld" path="res://SunnyLand Music/Sound Effects/buttonClick.mp3" id="4_eog2k"]
-[ext_resource type="Script" path="res://main_camera_2d.gd" id="5_ar7ft"]
 
 [node name="main" type="Node2D"]
 
-[node name="background" type="TextureRect" parent="."]
-offset_left = -2.0
-offset_top = -21.0
-offset_right = 2453.0
-offset_bottom = 833.0
-texture = ExtResource("1_ex3l0")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ks1gv")
 expand_mode = 1
 
-[node name="play" type="TextureButton" parent="."]
-offset_left = 88.0
-offset_top = 400.0
-offset_right = 543.0
-offset_bottom = 717.0
+[node name="play" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 65.0
+offset_top = -286.0
+offset_right = 520.0
+offset_bottom = 31.0
+grow_vertical = 0
 scale = Vector2(0.5, 0.4)
 texture_normal = ExtResource("2_pme2i")
+texture_pressed = ExtResource("2_pme2i")
 texture_hover = ExtResource("3_tq3vl")
 
-[node name="quit" type="TextureButton" parent="."]
-offset_left = 91.0
-offset_top = 550.0
-offset_right = 546.0
-offset_bottom = 867.0
+[node name="quit" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 62.0
+offset_top = -115.0
+offset_right = 517.0
+offset_bottom = 202.0
+grow_vertical = 0
 scale = Vector2(0.3, 0.2)
 texture_normal = ExtResource("3_sq6bx")
+texture_pressed = ExtResource("3_sq6bx")
 texture_hover = ExtResource("4_4bjqp")
 script = ExtResource("1_10vga")
 
@@ -47,9 +59,5 @@ autoplay = true
 stream = ExtResource("4_eog2k")
 volume_db = 8.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(578, 326)
-script = ExtResource("5_ar7ft")
-
-[connection signal="pressed" from="play" to="quit" method="_on_play_pressed"]
-[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer/quit" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer/quit" method="_on_pressed"]
