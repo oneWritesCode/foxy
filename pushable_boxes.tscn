@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc62bfyqykbcp"]
+
+[ext_resource type="Texture2D" uid="uid://xfrxmffca2py" path="res://foxy-fox-assets/Assets/environment/Background/box.png" id="1_0mqri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5scl3"]
+size = Vector2(26, 25)
+
+[node name="pushableBoxes" type="CharacterBody2D"]
+position = Vector2(172, 160)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.624995, 2)
+scale = Vector2(0.208985, 0.203125)
+texture = ExtResource("1_0mqri")
+
+[node name="collisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_5scl3")
