@@ -47,6 +47,18 @@ func _physics_process(delta: float) -> void:
 	
 	_set_animation()
 	move_and_slide()
+	# for moving the box 
+	for i in get_slide_collision_count():
+		var col = get_slide_collision(i)
+		var collider = col.get_collider()	
+		if collider and collider.has_method("_physics_process") and collider.name == "pushableBoxes":
+			var normal = col.get_normal()
+			# normal.x being significant means it's a side hit, not top/bottom
+			if abs(normal.x) > 0.7:
+				var dir = sign(collider.global_position.x - global_position.x)
+				collider.push_direction = dir
+	
+
 
 func _ladder_climb():
 	if Input.is_action_just_pressed("ui_accept"):
