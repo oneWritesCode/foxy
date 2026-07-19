@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8iunkxjny6mk"]
+[gd_scene load_steps=13 format=3 uid="uid://b8iunkxjny6mk"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_10vga"]
-[ext_resource type="Texture2D" uid="uid://b3q7ba22k84qc" path="res://foxy-fox-assets/Assets/half preview.png" id="1_ks1gv"]
-[ext_resource type="Texture2D" uid="uid://bpko787lxauu4" path="res://foxy-fox-assets/Assets/scrap/play btn.png" id="2_pme2i"]
+[ext_resource type="Texture2D" uid="uid://jhn31tdpe4ip" path="res://foxy-fox-assets/Assets/level 2 scrap/foxy's home page.png" id="1_61u2i"]
+[ext_resource type="Texture2D" uid="uid://dnxjtaxwqxb3v" path="res://foxy-fox-assets/Assets/level 2 scrap/play_btn_original.png" id="2_sa26s"]
+[ext_resource type="Texture2D" uid="uid://dtgvy1uhjgd7k" path="res://foxy-fox-assets/Assets/level 2 scrap/play btn_shadow.png" id="3_hibvu"]
 [ext_resource type="AudioStream" uid="uid://ip5cjqpmiahl" path="res://SunnyLand Music/Adventure pack 1 ogg/happywalking.ogg" id="3_lbpf0"]
 [ext_resource type="Texture2D" uid="uid://b3eegrdgikc23" path="res://foxy-fox-assets/Assets/scrap/quit btn.png" id="3_sq6bx"]
-[ext_resource type="Texture2D" uid="uid://lp351oc0g4fo" path="res://foxy-fox-assets/Assets/scrap/hovered play.png" id="3_tq3vl"]
 [ext_resource type="Texture2D" uid="uid://bmu6iprpimulb" path="res://foxy-fox-assets/Assets/scrap/hovered quit.png" id="4_4bjqp"]
 [ext_resource type="AudioStream" uid="uid://rp45o621knld" path="res://SunnyLand Music/Sound Effects/buttonClick.mp3" id="4_eog2k"]
+[ext_resource type="Texture2D" uid="uid://h43c00xkv8kj" path="res://foxy-fox-assets/Assets/level 2 scrap/level  2 .png" id="7_noi62"]
+[ext_resource type="Texture2D" uid="uid://dqoucwtj28chr" path="res://foxy-fox-assets/Assets/level 2 scrap/level  2 shadow.png" id="8_d6y1e"]
+[ext_resource type="Texture2D" uid="uid://dxitrt86st2gg" path="res://foxy-fox-assets/Assets/level 2 scrap/level  1.png" id="9_kfbeh"]
+[ext_resource type="Texture2D" uid="uid://bgvln71vqpt51" path="res://foxy-fox-assets/Assets/level 2 scrap/level  1 shadow.png" id="10_erkhr"]
 
 [node name="main" type="Node2D"]
 
@@ -17,26 +21,15 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ks1gv")
+texture = ExtResource("1_61u2i")
 expand_mode = 1
 
-[node name="play" type="TextureButton" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 65.0
-offset_top = -286.0
-offset_right = 520.0
-offset_bottom = 31.0
-grow_vertical = 0
-scale = Vector2(0.5, 0.4)
-texture_normal = ExtResource("2_pme2i")
-texture_pressed = ExtResource("2_pme2i")
-texture_hover = ExtResource("3_tq3vl")
-
 [node name="quit" type="TextureButton" parent="CanvasLayer"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -51,6 +44,43 @@ texture_pressed = ExtResource("3_sq6bx")
 texture_hover = ExtResource("4_4bjqp")
 script = ExtResource("1_10vga")
 
+[node name="play" type="TextureButton" parent="CanvasLayer"]
+offset_left = 722.0
+offset_top = 394.0
+offset_right = 1317.0
+offset_bottom = 578.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_sa26s")
+texture_pressed = ExtResource("3_hibvu")
+texture_hover = ExtResource("2_sa26s")
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1154.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.403922)
+
+[node name="level 2 btn" type="TextureButton" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 329.0
+offset_right = 1485.0
+offset_bottom = 607.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_noi62")
+texture_pressed = ExtResource("8_d6y1e")
+texture_hover = ExtResource("7_noi62")
+
+[node name="level 1 btn" type="TextureButton" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 324.0
+offset_right = 1154.0
+offset_bottom = 602.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_kfbeh")
+texture_pressed = ExtResource("10_erkhr")
+texture_hover = ExtResource("9_kfbeh")
+
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lbpf0")
 autoplay = true
@@ -59,5 +89,4 @@ autoplay = true
 stream = ExtResource("4_eog2k")
 volume_db = 8.0
 
-[connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer/quit" method="_on_play_pressed"]
 [connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer/quit" method="_on_pressed"]
