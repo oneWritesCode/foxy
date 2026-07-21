@@ -1,0 +1,194 @@
+[gd_scene load_steps=18 format=3 uid="uid://d0nnjff2wpqsx"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_vbkpj"]
+[ext_resource type="Texture2D" uid="uid://cv6hf3l5b4vdl" path="res://foxy-fox-assets/Assets/scrap/empty healthbar.png" id="2_783qd"]
+[ext_resource type="Texture2D" uid="uid://b1jb0hhcqxdpt" path="res://foxy-fox-assets/Assets/scrap/full healthbar.png" id="3_6yqcb"]
+[ext_resource type="Texture2D" uid="uid://o8iffrqfsloe" path="res://foxy-fox-assets/Assets/scrap/restart btn.png" id="4_ny4ms"]
+[ext_resource type="Texture2D" uid="uid://bf4kt30q76ecu" path="res://foxy-fox-assets/Assets/scrap/hovered restart.png" id="5_s4lsg"]
+[ext_resource type="Script" path="res://textureButton.gd" id="6_b50kk"]
+[ext_resource type="Texture2D" uid="uid://64n12hl5ttuk" path="res://foxy-fox-assets/Assets/scrap/home btn.png" id="7_e04od"]
+[ext_resource type="Texture2D" uid="uid://dcy6j868hh0ds" path="res://foxy-fox-assets/Assets/scrap/shadow home btn.png" id="8_lmx8u"]
+[ext_resource type="Texture2D" uid="uid://w780bfxyoknq" path="res://foxy-fox-assets/Assets/scrap/paused text.png" id="9_5r0be"]
+[ext_resource type="Texture2D" uid="uid://c7wf0fcfnq565" path="res://foxy-fox-assets/Assets/scrap/pause.png" id="10_evykt"]
+[ext_resource type="Texture2D" uid="uid://bfas5rt1lheld" path="res://foxy-fox-assets/Assets/scrap/damage_vignette.png" id="11_ldtkt"]
+[ext_resource type="FontFile" uid="uid://dscu60om8p0xh" path="res://foxy-fox-assets/Assets/Press_Start_2P/PressStart2P-Regular.ttf" id="12_ab35b"]
+[ext_resource type="Texture2D" uid="uid://bil8h40sfpi2m" path="res://foxy-fox-assets/Assets/environment/coins/coins spreadsheet-3.png.png" id="13_fqcm1"]
+[ext_resource type="Texture2D" uid="uid://d18bvb2lwiwbl" path="res://foxy-fox-assets/Assets/environment/keys/keys-1.png" id="14_f2yy4"]
+[ext_resource type="Texture2D" uid="uid://b7hfym4p26frd" path="res://foxy-fox-assets/Assets/scrap/you won font.png" id="15_oijlc"]
+[ext_resource type="AudioStream" uid="uid://diwph0jd3t51o" path="res://SunnyLand Music/adventure pack 2 ogg/magic cliffs.ogg" id="16_hwr3v"]
+[ext_resource type="AudioStream" uid="uid://rp45o621knld" path="res://SunnyLand Music/Sound Effects/buttonClick.mp3" id="17_i6ntv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vbkpj")
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD"]
+custom_minimum_size = Vector2(200, 24)
+layout_mode = 1
+offset_left = 413.0
+offset_top = 580.0
+offset_right = 4549.0
+offset_bottom = 1124.0
+scale = Vector2(0.1, 0.1)
+texture_under = ExtResource("2_783qd")
+texture_progress = ExtResource("3_6yqcb")
+
+[node name="PauseTexture" type="ColorRect" parent="HUD"]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 660.0
+color = Color(0, 0, 0, 0.592157)
+
+[node name="RestartButton" type="TextureButton" parent="HUD/PauseTexture"]
+layout_mode = 2
+offset_left = 622.0
+offset_top = 271.0
+offset_right = 1077.0
+offset_bottom = 588.0
+scale = Vector2(0.4, 0.4)
+focus_mode = 0
+texture_normal = ExtResource("4_ny4ms")
+texture_pressed = ExtResource("4_ny4ms")
+texture_hover = ExtResource("5_s4lsg")
+script = ExtResource("6_b50kk")
+
+[node name="HomeButton" type="TextureButton" parent="HUD/PauseTexture"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 269.0
+offset_right = 2147.0
+offset_bottom = 1541.0
+scale = Vector2(0.1, 0.1)
+focus_mode = 0
+texture_normal = ExtResource("7_e04od")
+texture_pressed = ExtResource("8_lmx8u")
+texture_hover = ExtResource("7_e04od")
+script = ExtResource("6_b50kk")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/PauseTexture"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 124.0
+offset_right = 1045.0
+offset_bottom = 541.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_5r0be")
+
+[node name="settingsButton" type="TextureButton" parent="HUD"]
+layout_mode = 2
+offset_left = 1084.0
+offset_top = 29.0
+offset_right = 1340.0
+offset_bottom = 285.0
+scale = Vector2(0.2, 0.2)
+focus_mode = 0
+texture_normal = ExtResource("10_evykt")
+
+[node name="DamageOverlay" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -2.0
+offset_right = 1154.0
+offset_bottom = 658.0
+mouse_filter = 2
+texture = ExtResource("11_ldtkt")
+expand_mode = 1
+
+[node name="coinLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.281
+anchor_top = 0.5
+anchor_right = 1.281
+anchor_bottom = 0.5
+offset_left = 964.76
+offset_top = 44.0
+offset_right = 997.76
+offset_bottom = 60.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("12_ab35b")
+text = "*1"
+
+[node name="coin" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 971.0
+offset_top = 33.0
+offset_right = 1191.0
+offset_bottom = 273.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_fqcm1")
+expand_mode = 1
+
+[node name="key" type="TextureRect" parent="HUD"]
+layout_mode = 0
+offset_left = 1092.0
+offset_top = 113.0
+offset_right = 1131.0
+offset_bottom = 151.0
+texture = ExtResource("14_f2yy4")
+expand_mode = 1
+
+[node name="keyLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.154
+anchor_top = 8.206
+anchor_right = 14.154
+anchor_bottom = 8.206
+offset_left = 550.84
+offset_top = -188.24
+offset_right = 582.84
+offset_bottom = -172.24
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("12_ab35b")
+text = "*1"
+
+[node name="WinScene" type="ColorRect" parent="HUD"]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0.172549, 0.0901961, 0.164706, 1)
+
+[node name="RestartButton2" type="TextureButton" parent="HUD/WinScene"]
+layout_mode = 2
+offset_left = 460.0
+offset_top = 395.0
+offset_right = 915.0
+offset_bottom = 712.0
+scale = Vector2(0.4, 0.3)
+focus_mode = 0
+texture_normal = ExtResource("4_ny4ms")
+texture_pressed = ExtResource("4_ny4ms")
+texture_hover = ExtResource("5_s4lsg")
+stretch_mode = 0
+script = ExtResource("6_b50kk")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/WinScene"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 177.0
+offset_right = 810.0
+offset_bottom = 376.0
+texture = ExtResource("15_oijlc")
+expand_mode = 1
+
+[node name="devContact" type="Label" parent="HUD/WinScene"]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 602.0
+offset_right = 683.0
+offset_bottom = 625.0
+theme_override_fonts/font = ExtResource("12_ab35b")
+text = "BUILT BY DEEPAK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HUD/WinScene"]
+stream = ExtResource("16_hwr3v")
+
+[node name="buttonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_i6ntv")
+volume_db = 8.0
