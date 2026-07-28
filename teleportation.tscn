@@ -1,22 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0801i6xmu133"]
+[gd_scene load_steps=12 format=3 uid="uid://d0801i6xmu133"]
 
-[ext_resource type="Texture2D" uid="uid://bnmhog5fogxkv" path="res://foxy-fox-assets/Assets/environment/Props/door-opened.png" id="1_sig8w"]
 [ext_resource type="Script" path="res://teleportation.gd" id="1_ycq75"]
+[ext_resource type="Texture2D" uid="uid://c2nayboyv30yv" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-2.png" id="2_0ynl0"]
+[ext_resource type="Texture2D" uid="uid://b3rhlxo63yq6i" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-4.png" id="3_vkab2"]
+[ext_resource type="Texture2D" uid="uid://dv2du23vbogsx" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-3.png" id="4_obo1t"]
+[ext_resource type="Texture2D" uid="uid://dhkv4yg0wxdw6" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-5.png" id="5_eiwqy"]
+[ext_resource type="Texture2D" uid="uid://dqmobq1m82q02" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-6.png" id="6_uw5cd"]
+[ext_resource type="Texture2D" uid="uid://c5skhos3jh6eq" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-7.png" id="7_quxwg"]
+[ext_resource type="Texture2D" uid="uid://px6ui2it83ip" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-8.png" id="8_5d7gd"]
+[ext_resource type="Texture2D" uid="uid://bsspqna8im6tq" path="res://foxy-fox-assets/Assets/environment/teleportation/teleportation-9.png" id="9_gfxqw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_njbrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ynl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vkab2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_obo1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eiwqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uw5cd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_quxwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5d7gd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gfxqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhg0x"]
-size = Vector2(2.15502, 73.8215)
+size = Vector2(2.15502, 28.2721)
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(2.6382, 0.636671)
 script = ExtResource("1_ycq75")
 exit_position = Vector2(400, 200)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10.5752)
-scale = Vector2(0.591561, 2.35438)
-texture = ExtResource("1_sig8w")
+scale = Vector2(0.015, 0.06)
+sprite_frames = SubResource("SpriteFrames_njbrh")
+frame_progress = 0.285134
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.32666, 11.78)
+position = Vector2(1.13714, 17.2774)
 scale = Vector2(1.23123, 1)
 shape = SubResource("RectangleShape2D_yhg0x")
