@@ -1,11 +1,8 @@
 extends Node
 
+signal diamonds_changed(new_total)
+var diamonds: int = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func add_diamond(amount: int) -> void:
+	diamonds += amount
+	diamonds_changed.emit(diamonds)

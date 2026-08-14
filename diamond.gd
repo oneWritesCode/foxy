@@ -1,7 +1,7 @@
 extends Area2D
 
-signal diamonds_changed(new_total)
-var diamonds: int = 0
+#signal diamonds_changed(new_total)
+#var diamonds: int = 0
 
 @export var diamond_type: String = "diamond_blue"
 
@@ -22,6 +22,6 @@ func _on_body_entered(body: Node) -> void:
 	await diamond_sound.finished
 	queue_free()
 	
-func add_diamond(amount: int) -> void:
-	diamonds += amount
-	diamonds_changed.emit(diamonds)
+#func add_diamond(amount: int) -> void:
+	#diamonds += amount
+	#diamonds_changed.emit(diamonds)
