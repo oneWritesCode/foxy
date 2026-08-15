@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://mwwpabub7com"]
+
+[ext_resource type="Script" path="res://crumbling_tile.gd" id="1_wd25y"]
+[ext_resource type="Texture2D" uid="uid://bp1mae47yh7nx" path="res://foxy-fox-assets/Assets/environment/Props/platform-long.png" id="2_hpdcn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x241"]
+size = Vector2(25, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x53s"]
+size = Vector2(25, 13)
+
+[node name="CrumblingTile" type="StaticBody2D"]
+position = Vector2(246, 142)
+script = ExtResource("1_wd25y")
+min_time = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_2x241")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.2, 0)
+scale = Vector2(0.8, 0.6)
+texture = ExtResource("2_hpdcn")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, -1.5)
+shape = SubResource("RectangleShape2D_2x53s")
