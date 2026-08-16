@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0nnjff2wpqsx"]
+[gd_scene load_steps=19 format=3 uid="uid://d0nnjff2wpqsx"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_vbkpj"]
 [ext_resource type="Texture2D" uid="uid://cv6hf3l5b4vdl" path="res://foxy-fox-assets/Assets/scrap/empty healthbar.png" id="2_783qd"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d18bvb2lwiwbl" path="res://foxy-fox-assets/Assets/environment/keys/keys-1.png" id="14_f2yy4"]
 [ext_resource type="Texture2D" uid="uid://b7hfym4p26frd" path="res://foxy-fox-assets/Assets/scrap/you won font.png" id="15_oijlc"]
 [ext_resource type="AudioStream" uid="uid://diwph0jd3t51o" path="res://SunnyLand Music/adventure pack 2 ogg/magic cliffs.ogg" id="16_hwr3v"]
+[ext_resource type="Texture2D" uid="uid://b4jkumae2gs3c" path="res://foxy-fox-assets/Assets/environment/diamond/diamond-3.png" id="17_6f4my"]
 [ext_resource type="AudioStream" uid="uid://rp45o621knld" path="res://SunnyLand Music/Sound Effects/buttonClick.mp3" id="17_i6ntv"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -98,6 +99,30 @@ offset_bottom = 658.0
 mouse_filter = 2
 texture = ExtResource("11_ldtkt")
 expand_mode = 1
+
+[node name="DiamondHead" type="Node2D" parent="HUD"]
+
+[node name="Diamond" type="TextureRect" parent="HUD/DiamondHead"]
+offset_left = 859.0
+offset_top = 33.0
+offset_right = 1107.0
+offset_bottom = 329.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("17_6f4my")
+
+[node name="DiamondLabel" type="Label" parent="HUD/DiamondHead"]
+anchors_preset = -1
+anchor_left = 14.154
+anchor_top = 8.206
+anchor_right = 14.154
+anchor_bottom = 8.206
+offset_left = 893.0
+offset_top = 66.0
+offset_right = 925.0
+offset_bottom = 82.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("12_ab35b")
+text = "*1"
 
 [node name="coinLabel" type="Label" parent="HUD"]
 layout_mode = 1

@@ -10,6 +10,7 @@ extends Control
 @onready var btnClickSound = $"../buttonClick"
 @onready var coin_label = $coinLabel
 @onready var key_texture = $key
+@onready var diamond_label = $DiamondHead/DiamondLabel
 @onready var key_label = $keyLabel
 @onready var win_scene = $WinScene
 #@onready var win_label = $WinScene/winLabel
@@ -35,12 +36,21 @@ func _ready() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		update_health(player.health, player.MAX_HEALTH)
+		
 	# code for key
 	Keys.get_key.connect(on_get_key)
 	on_get_key(Keys.key)
+	
 	#code for conins
 	Currency.coins_changed.connect(_on_coins_changed)
 	_on_coins_changed(Currency.coins) 
+	
+	# for diamonds
+	Diamonds.diamonds_changed.connect(_on_diamonds_changed)
+	_on_diamonds_changed(Diamonds.diamonds)
+
+func _on_diamonds_changed(new_total: int) -> void:
+	diamond_label.text = "x%d" % new_total
 
 func _on_coins_changed(new_total: int) -> void:
 	coin_label.text = "*%d" % new_total
@@ -85,7 +95,6 @@ func _on_home_button_pressed() -> void:
 	get_viewport().gui_release_focus()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main.tscn")
-
 
 #func _on_quit_button_pressed() -> void:
 	#btnClickSound.play()
