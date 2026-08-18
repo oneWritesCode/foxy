@@ -4,10 +4,11 @@ var shake_duration: float = 0.0
 var original_offset: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	limit_left = -100
-	limit_top = 60
-	limit_right = 1900
-	limit_bottom = 650
+	limit_smoothed = true
+	#limit_left = -100
+	#limit_top = 60
+	#limit_right = 1900
+	#limit_bottom = 650
 
 func shake(intensity: float, duration: float) -> void:
 	shake_intensity = intensity
