@@ -1,13 +1,19 @@
 extends Area2D
-@export var limit_left: int
-@export var limit_right: int
-@export var limit_top: int
-@export var limit_bottom: int
 
-func _on_body_entered(body):
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
+func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		var cam = body.get_node("Camera2D")
-		cam.limit_left = limit_left
-		cam.limit_right = limit_right
-		cam.limit_top = limit_top
-		cam.limit_bottom = limit_bottom
+		var shape := collision_shape.shape as RectangleShape2D
+		if shape == null:
+			push_warning("cameraZone requires a RectangleShape2D")
+			return
+
+		var extents = shape.extents  # half-size of the rectangle
+		var center = collision_shape.global_position
+
+		cam.limit_left = int(center.x - extents.x)
+		cam.limit_right = int(center.x + extents.x)
+		cam.limit_top = int(center.y - extents.y)
+		cam.limit_bottom = int(center.y + extents.y)
