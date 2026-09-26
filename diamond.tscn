@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhge827cre6cp"]
+[gd_scene load_steps=10 format=3 uid="uid://bhge827cre6cp"]
 
 [ext_resource type="Texture2D" uid="uid://b66otst7d5am6" path="res://foxy-fox-assets/Assets/environment/diamond/diamond-1.png" id="1_ntk30"]
 [ext_resource type="Texture2D" uid="uid://l2rgs0n3a0wk" path="res://foxy-fox-assets/Assets/environment/diamond/diamond-2.png" id="2_jw7od"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dbj0ptnlvcu8n" path="res://foxy-fox-assets/Assets/environment/diamond/red diamond/red-diamond 1.png" id="4_rh7b1"]
 [ext_resource type="Texture2D" uid="uid://85w3ejojd0si" path="res://foxy-fox-assets/Assets/environment/diamond/red diamond/red-diamond 2.png" id="5_q78ke"]
 [ext_resource type="Texture2D" uid="uid://csb005nt6ccdb" path="res://foxy-fox-assets/Assets/environment/diamond/red diamond/red-diamond 3.png" id="6_o6ukn"]
+[ext_resource type="AudioStream" uid="uid://dmkhc6r14b8wf" path="res://SunnyLand Music/Sound Effects/diamond_collection.mp3" id="7_lntdn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x1g2x"]
 animations = [{
@@ -52,3 +53,4 @@ animation = &"diamond_red"
 shape = SubResource("CircleShape2D_ml01h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lntdn")

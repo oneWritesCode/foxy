@@ -2,6 +2,7 @@ extends Area2D
 
 @export var exit_position: Vector2   # set this in Inspector to the other teleporter's world position
 @export var black_overlay: CanvasLayer  # drag your overlay node here
+#@onready var black_overlay: CanvasLayer = get_tree().get_first_node_in_group("black_overlay")
 
 var is_cooling_down = false
 

@@ -50,11 +50,11 @@ scale = Vector2(2.6382, 0.636671)
 script = ExtResource("1_ycq75")
 exit_position = Vector2(400, 200)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10.5752)
 scale = Vector2(0.015, 0.06)
 sprite_frames = SubResource("SpriteFrames_njbrh")
-frame_progress = 0.285134
+frame_progress = 0.426706
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.13714, 17.2774)

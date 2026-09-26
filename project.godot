@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 Currency="*res://currency.gd"
 Keys="*res://keys.gd"
+Diamonds="*res://diamonds.gd"
 
 [display]
 

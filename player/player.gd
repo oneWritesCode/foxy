@@ -133,3 +133,7 @@ func die() -> void:
 	Keys.key = 0
 	await get_tree().create_timer(2.0).timeout
 	get_tree().reload_current_scene()
+
+
+func _on_camera_zone_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
